@@ -1,0 +1,54 @@
+from django.shortcuts import render
+
+# Create your views here.
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from USED_CAR_PRICES_PREDICTION import settings
+import pandas as pd
+import joblib
+
+def homepage(request):
+    return render(request,"index.html")
+
+
+
+def indexfn(list,data):
+    for i in range(len(list)):
+        if list[i]== data:
+            return i
+        
+a = ['Ambassador', 'Ashok', 'Audi', 'BMW', 'Chevrolet', 'Daewoo',
+       'Datsun', 'Fiat', 'Force', 'Ford', 'Honda', 'Hyundai', 'Isuzu',
+       'Jaguar', 'Jeep','Kia', 'Land', 'Lexus', 'MG', 'Mahindra',
+       'Maruti', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'Opel',
+       'Renault', 'Skoda', 'Tata', 'Toyota', 'Volkswagen', 'Volvo']  
+b=  ['Diesel', 'Petrol', 'LPG', 'CNG']
+c = ['Individual', 'Dealer', 'Trustmark Dealer']
+d = ['Manual', 'Automatic']
+e=['First Owner', 'Second Owner', 'Third Owner',
+       'Fourth & Above Owner', 'Test Drive Car']
+
+def pred(request):
+    if request.method == "POST":
+        model = joblib.load(settings.MODEL_PATH)
+        list=[]
+        list.append(request.POST["a1"])
+        list.append(request.POST["a2"])
+        list.append(request.POST["a3"])
+        list.append(request.POST["a4"])
+        list.append(request.POST["a5"])
+        list.append(request.POST["a6"])
+        list.append(request.POST["a7"])
+        list.append(request.POST["a8"])
+        list.append(request.POST["a9"])
+        list.append(request.POST["a10"])
+        list.append(request.POST["a11"])
+        inputdata = pd.DataFrame([list],columns=['name', 'year', 'km_driven', 'fuel', 'seller_type','transmission', 'owner', 'mileage', 'engine', 'max_power', 'seats'])
+        inputdata.loc[0, "name"] = indexfn(a, inputdata.loc[0, "name"])
+        inputdata.loc[0, "fuel"] = indexfn(b, inputdata.loc[0, "fuel"])
+        inputdata.loc[0, "seller_type"] = indexfn(c, inputdata.loc[0, "seller_type"])
+        inputdata.loc[0, "transmission"] = indexfn(d, inputdata.loc[0, "transmission"])
+        inputdata.loc[0, "owner"] = indexfn(e, inputdata.loc[0, "owner"])
+        result=model.predict(inputdata)
+        return JsonResponse({"result":round(result[0],2)})

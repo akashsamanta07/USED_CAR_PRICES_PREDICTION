@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -50;
+}
+h1{
+    color: rgb(255, 255, 255);
+    padding: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: rgb(65, 64, 66);
+    box-shadow: 2px 2px 2px rgb(66, 65, 67);
+}
+
+.bord{
+    display: flex;
+    justify-content: center;
+}
+.form{
+    border-radius: 10px;
+    background-color: rgba(79, 80, 72, 0.8);
+    box-shadow: 2px 2px 2px rgba(108, 109, 99, 0.8);
+    margin-top: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1rem;
+}
+.form div{
+    color:white;
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+}
+input,select{
+    width: 130px;
+    height: 30px;
+    color: white;
+    background: #a99b9b;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+input:focus{
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+#bt{
+    justify-content: space-between;
+}
+button{
+    background-color: rgb(215, 55, 55);
+    color: white;
+    font-weight: bolder;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(245, 1, 1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out 0s;
+}
+#bt2:active{
+    background-color: #d4253d;
+    color:black;
+    box-shadow: 0 3px 2px rgb(229, 80, 16);
+    transform: scale(0.95);
+}
+#bt1{
+    border: 2px solid rgb(5, 235, 20);
+    background-color: rgb(46, 188, 6);
+}
+#bt1:active{
+    background-color: #0ce676;
+    color:black;
+    box-shadow: 0 3px 2px rgb(13, 223, 5);
+    transform: scale(0.95);
+}
+p{
+    visibility:hidden;
+}
+@media(max-width:560px){
+    h1{
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+    .form div{
+        font-size: 0.6rem;
+        font-weight:normal;
+        gap: 1rem;
+    }
+    input,select{
+        font-size: 0.6rem;
+        width: 100px;
+        height: 25px;
+        font-weight: normal;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    button{
+        font-size: 0.8rem;
+        padding: 5px;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+}
