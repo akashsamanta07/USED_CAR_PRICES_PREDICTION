@@ -30,7 +30,7 @@ bt1.addEventListener("click",()=>{
     data.append("a10",speed.value);
     data.append("a11",seat.value);
     data.append("a12","");
-    if(brand.value == "none" || km.value < 10 || km.value > 200000 || fuel.value == "none" || seller.value == "none" || tranmission.value == "none" || owner.value == "none" || mileage.value < 10 || mileage.value > 40 || engine.value < 700 || engine.value > 5000 || speed.value < 80 || speed.value > 400 || seat.value < 5 || seat.value > 10 ){
+    if(brand.value == "none" || km.value < 10 || km.value > 2000000 || fuel.value == "none" || seller.value == "none" || tranmission.value == "none" || owner.value == "none" || mileage.value < 10 || mileage.value > 40 || engine.value < 700 || engine.value > 5000 || speed.value < 80 || speed.value > 400 || seat.value < 5 || seat.value > 10 ){
         alert("Invalid input");
     }else{
         fetch("/pred/",{

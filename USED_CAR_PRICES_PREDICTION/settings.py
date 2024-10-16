@@ -118,8 +118,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MODEL_DIR = os.path.join(BASE_DIR, "preprocessing")
-MODEL_PATH = os.path.join(MODEL_DIR, "model.pkl")
+DATASET_DIR = os.path.join(BASE_DIR, "preprocessing")
+DATASET_PATH1= os.path.join(DATASET_DIR, "x_train.csv")
+DATASET_PATH2= os.path.join(DATASET_DIR, "y_train.csv")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
