@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/image/car.png" type="image/png">
+    <title>Price Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="main">
+        <img src="/static/image/car.png" alt="car image">
+        <div class="container">
+            <header>
+                <h1>USED CAR PRICES PREDICTION</h1>
+            </header>
+            <div class="bord">
+                <div id="predictionForm" method="POST" class="form">
+                    {% csrf_token %}
+                    <div>
+                        <label for="year">Select Car Manufactured Year :</label>
+                        <select name="year" id="year" class="input">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="km">Enter Driven( 10 to 2000000 )km :</label>
+                        <input type="number" id="km" name="drive" placeholder="Enter input" class="input">
+                    </div>
+                    <div>
+                        <label for="fuel">Select Fuel type :</label>
+                        <select name="fuel" id="fuel" class="input">
+                            <option value="none">None</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="LPG">LPG</option>
+                            <option value="CNG">CNG</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="seller">Select Seller Type :</label>
+                        <select name="seller" id="seller" class="input">
+                            <option value="none">None</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Dealer">Dealer</option>
+                            <option value="Trustmark Dealer">Trustmark Dealer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="tranmission">Select Transmission Type :</label>
+                        <select name="tranmission" id="tranmission" class="input">
+                            <option value="none">None</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="owner">Select Owner Type :</label>
+                        <select name="owner" id="owner" class="input">
+                            <option value="none">None</option>
+                            <option value="First Owner">First Owner</option>
+                            <option value="Second Owner">Second Owner</option>
+                            <option value="Third Owner">Third Owner</option>
+                            <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                            <option value="Test Drive Car">Test Drive Car</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mileage">Enter Car Mileage( 10km to 40km ) :</label>
+                        <input type="number" id="mileage" name="mileage" placeholder="Enter input" class="input">
+                    </div>
+                    <div>
+                        <label for="engine">Enter Engine Type( 700 to 5000 )CC :</label>
+                        <input type="number" id="engine" name="engine" placeholder="Enter input" class="input">
+                    </div>
+                    <div>
+                        <label for="speed">Enter Max speed( 80 to 400 )km/hr :</label>
+                        <input type="number" id="speed" name="speed" placeholder="Enter input" class="input">
+                    </div>
+                    <div>
+                        <label for="seat">Enter No of Seats( 5 to 10 ) :</label>
+                        <input type="number" id="seat" name="seat" placeholder="Enter input" class="input">
+                    </div>
+                    <div id="bt">
+                        <button id="bt1" type="submit">Predict</button>
+                        <p>Predicted price : </p>
+                        <button id="bt2">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/script.js"></script>
+</html>
